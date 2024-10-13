@@ -38,18 +38,29 @@ Run the docker container with the following command:
 `docker run -it --rm dl-hw-mm`
 
 Inside the container, you should clone the repository (I could also copy the files into the container, but I think it is better to clone the repository):
-`git clone `
+`git clone https://github.com/matemeglecz/dl-hw-mm.git`
 
 ### Conda environment
 
+In this case you need cuda already installed on your machine if you want to use the GPU.
+I used cuda 11.3.
+
 Alternatively, you can also create the environment from the `requirements.txt` file:
-1. `conda create --name dl-hw-mm --python=3.8`
+1. `conda create --name dl-hw-mm python=3.8`
 2. `conda activate dl-hw-mm`
 3. `pip install -r requirements.txt`
 
 ### Running the solution
 
+At this point you can run the `data_analysis.ipynb` notebook to analyze the dataset and preprocess the images and masks. The notebook contains the functions to one-hot encode the masks, so they can be used for training the model.
 
+For this I suggest building `Dockerfile_ssh` and ssh into the container to run the notebook from your favorite IDE. 
+
+The dataset should also be mounted into the container, adjust the path in the notebook accordingly.
+(The same way the mounting of the code is possible, then cloning is not necessary.)
+
+For mounting use:
+`docker run -it --rm -v /path/to/dataset:/path/in/container dl-hw-mm`
 
 ## Functions of the files in the repository
 
