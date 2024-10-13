@@ -69,3 +69,7 @@ For mounting use:
 - `se_dataset.py`: Contains the dataset class for the synthetic MRI images, does the preprocessing of the images and masks, and returns the images and masks in the correct format for the model. Masks are not one-hot encoded yet, so they can be plotted properly, but they are ready to be one-hot encoded.
 
 - `data_analysis.ipynb`: Contains the data analysis of the dataset, including the distribution of the images and masks, general introduction to the dataset, and examples of the images and masks. Also the function for mask one-hot encoding is in this notebook.
+
+- `Dockerfile`: the image to build the solution
+
+- `Dockerfile_ssh`: the same base image, but with the ability to ssh into it, so it is possible to run for example notebooks through ssh from you IDE.
